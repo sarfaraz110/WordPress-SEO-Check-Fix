@@ -1,0 +1,194 @@
+/* Custom Styles for Sums Plugin - Starts */
+
+/* Global Styles for Sums Plugin */
+.sums-plugin-wrapper {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+/* Dashboard Header */
+.sums-plugin-wrapper h1 {
+    font-size: 30px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Manual Scan Button */
+.sums-manual-scan button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sums-manual-scan button:hover {
+    background-color: #2980b9;
+}
+
+/* SEO Analysis Table */
+.sums-seo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+.sums-seo-table th, .sums-seo-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.sums-seo-table th {
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+}
+
+.sums-seo-table td {
+    font-size: 14px;
+}
+
+/* Table Row Colors */
+.sums-seo-table tr:nth-child(even) {
+    background-color: #ecf0f1;
+}
+
+.sums-seo-table tr:hover {
+    background-color: #d5d8dc;
+}
+
+/* Filters Section */
+.sums-filters {
+    margin-bottom: 20px;
+}
+
+.sums-filters select, .sums-filters input[type="submit"] {
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.sums-filters input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+.sums-filters input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Pagination Styles */
+.sums-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px; /* Buttons ke darmiyan space */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Agar screen choti ho to elements break na hon */
+}
+
+.sums-pagination a,
+.sums-pagination .current {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 40px; /* Har button ka size same rahega */
+    display: inline;
+}
+
+.sums-pagination .current {
+    background-color: #2980b9;
+    padding: 8px 18px;
+    font-size: 16px;
+}
+
+.sums-pagination a:hover {
+    background-color: #1f6690;
+}
+
+
+/* Custom Styling for SEO Issues */
+.sums-seo-issue {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.sums-seo-success {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Custom Footer */
+.sums-plugin-footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #95a5a6;
+}
+
+/* Chart Container */
+.chart-container {
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+/* Buttons */
+.sums-auto-fix-button,
+.sums-openai-fix-button {
+    margin: 5px;
+}
+
+.sums-auto-fix-button .sums-loading,
+.sums-openai-fix-button .sums-loading {
+    display: none;
+    margin-left: 5px;
+}
+
+/* Loading State */
+.sums-auto-fix-button:disabled,
+.sums-openai-fix-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+/* Button States */
+.sums-auto-fix-button {
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.sums-auto-fix-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.sums-loading {
+    margin-left: 5px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
