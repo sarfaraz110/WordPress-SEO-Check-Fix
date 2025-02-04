@@ -1,0 +1,19 @@
+#sums-seo-dashboard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#sums-scan-all-posts {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#sums-scan-all-posts:hover {
+    background: #005177;
+}
