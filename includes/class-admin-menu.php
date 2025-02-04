@@ -6,7 +6,6 @@ if (!defined('ABSPATH')) {
 class Sums_SEO_Admin_Menu {
     public function __construct() {
         add_action('admin_menu', array($this, 'add_admin_menu'));
-        add_action('admin_menu', array($this, 'add_reports_submenu')); // Fix added
     }
 
     public function add_admin_menu() {
@@ -37,6 +36,16 @@ class Sums_SEO_Admin_Menu {
             'sums-seo-api-settings',
             array($this, 'render_api_settings')
         );
+
+        add_submenu_page(
+            'sums-seo-dashboard',
+            __('Reports', 'sums-solution'),
+            __('Reports', 'sums-solution'),
+            'manage_options',
+            'sums-seo-reports',
+            array($this, 'render_reports')
+        );
+    
     }
 
     public function render_dashboard() {
@@ -46,22 +55,13 @@ class Sums_SEO_Admin_Menu {
     public function render_api_settings() {
         include SUMS_SEO_PLUGIN_DIR . 'templates/api-settings.php';
     }
-
     public function render_reports() {
         include SUMS_SEO_PLUGIN_DIR . 'templates/reports.php';
     }
 
-    public function add_reports_submenu() {
-        add_submenu_page(
-            'sums-seo-dashboard',
-            __('Reports', 'sums-solution'),
-            __('Reports', 'sums-solution'),
-            'manage_options',
-            'sums-seo-reports',
-            array($this, 'render_reports')
-        );
-    }
+    // Removed redundant add_reports_submenu method
 }
 
-// Object creation (no need to manually call submenu function)
-new Sums_SEO_Admin_Menu();
+add_action('admin_menu', function() {
+    new Sums_SEO_Admin_Menu();
+});
