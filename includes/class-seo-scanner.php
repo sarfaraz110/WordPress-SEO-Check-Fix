@@ -101,3 +101,48 @@ class Sums_SEO_Scanner {
         ));
     }
 }
+
+class SEO_Scanner {
+    public function auto_add_focus_keyword($post_id) {
+        if (!class_exists('WPSEO_Meta')) {
+            return; // Agar Yoast SEO install nahi hai to kuch na karein
+        }
+        
+        $focus_keyword = WPSEO_Meta::get_value('focuskw', $post_id);
+        if (!empty($focus_keyword)) {
+            return; // Agar focus keyword already set hai to kuch na karein
+        }
+        
+        $post_title = get_the_title($post_id);
+        $post_content = get_post_field('post_content', $post_id);
+        
+        // Title aur Content se keywords nikalna
+        $keywords = $this->extract_keywords($post_title . ' ' . $post_content);
+        if (!empty($keywords)) {
+            WPSEO_Meta::set_value('focuskw', $keywords[0], $post_id); // Pehla keyword set karein
+        }
+    }
+    
+    private function extract_keywords($text) {
+        $words = explode(' ', strtolower(strip_tags($text)));
+        $filtered_words = array_filter($words, function ($word) {
+            return strlen($word) > 3; // Chhoti words remove karna
+        });
+        
+        $word_counts = array_count_values($filtered_words);
+        arsort($word_counts);
+        
+        return array_keys(array_slice($word_counts, 0, 5)); // Top 5 keywords return karein
+    }
+    
+    public function get_all_posts() {
+        $args = array(
+            'post_type'      => array('post', 'page'),
+            'posts_per_page' => -1, // Saare posts aur pages fetch karein
+            'post_status'    => 'publish',
+        );
+        $query = new WP_Query($args);
+        
+        return $query->posts;
+    }
+}

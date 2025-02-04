@@ -4,6 +4,7 @@
         <?php
         settings_fields('sums_seo_api_group');
         do_settings_sections('sums-seo-api-settings');
+        wp_nonce_field('sums_seo_action', 'sums_seo_nonce');
         submit_button();
         ?>
     </form>

@@ -23,8 +23,10 @@ define('SUMS_SEO_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 // Load necessary files
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-admin-menu.php';
+require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-admin-security.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-ai-rewriting.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-ajax-handler.php';
+require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-api-auto-updates.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-api-integration.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-api-settings.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-auto-updates.php';
@@ -36,6 +38,7 @@ require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-image-seo.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-internal-linking.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-lazy-loading.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-monthly-reports.php';
+require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-optimization.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-performance-tracking.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-schema-generator.php';
 require_once SUMS_SEO_PLUGIN_DIR . 'includes/class-security.php';
@@ -160,3 +163,21 @@ function sums_seo_ai_rewriting_init() {
     new Sums_SEO_AI_Rewriting();
 }
 add_action('init', 'sums_seo_ai_rewriting_init');
+
+// Initialize optimization
+function sums_seo_optimization_init() {
+    new Sums_SEO_Optimization();
+}
+add_action('init', 'sums_seo_optimization_init');
+
+// Initialize API auto-updates
+function sums_seo_api_auto_updates_init() {
+    new Sums_SEO_API_Auto_Updates();
+}
+add_action('init', 'sums_seo_api_auto_updates_init');
+
+// Initialize admin security
+function sums_seo_admin_security_init() {
+    new Sums_SEO_Admin_Security();
+}
+add_action('init', 'sums_seo_admin_security_init');
